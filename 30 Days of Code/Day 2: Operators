@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    double mealCost;
+    int tipPercent;
+    int taxPercent;
+    int totalcost;
+    scanf("%lf",&mealCost);
+    scanf("%d %d",&tipPercent,&taxPercent);
+    totalcost=round(tipPercent*mealCost/100.0+taxPercent*mealCost/100.0+mealCost);
+    printf("The total meal cost is %d dollars.",totalcost);
+    return 0;
+}
