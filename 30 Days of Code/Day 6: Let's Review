@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int T;
+    scanf("%d",&T);
+    for(int i=0;i<T;i++){
+        char s[10004];
+        char s1[5000];
+        char s2[5000];
+        scanf("%s",s);
+        int k=0;
+        int l=0;
+        for(int j=0;j<strlen(s);j++){
+            if(j%2==0){
+                s1[k]=s[j];
+                k++;
+            }
+            else{
+                s2[l]=s[j];
+                l++;
+            }
+        }
+        s1[k]='\0';
+        s2[l]='\0';
+        printf("%s %s",s1,s2);
+        printf("\n");
+    }
+    return 0;
+}
