@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n, k, b_charged, b_actual=0;
+    int *arr;
+    scanf("%d %d",&n,&k);     
+    arr = (int *)malloc(n*sizeof(int));
+    for(int i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    scanf("%d",&b_charged);
+    for(int i=0;i<n;i++){
+        if(i!=k)
+        b_actual=b_actual+arr[i];
+    }
+    b_actual=b_actual/2;
+    if(b_actual==b_charged)
+        printf("Bon Appetit");
+    else
+        printf("%d",b_charged-b_actual);   
+    return 0;
+}
