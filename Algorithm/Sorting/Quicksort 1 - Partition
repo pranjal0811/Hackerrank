@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int [] ar = new int[n];
+        for(int i=0;i<n;i++)
+            ar[i]=in.nextInt();
+        int [] left = new int[n];
+        int [] equal = new int[n];
+        int [] right = new int[n];
+        int l=0,r=0;
+        int pivot = ar[0];
+        for(int i=0 ; i<n ; i++){
+            if(ar[i]>ar[0]){
+                right[r]=ar[i];
+                r++;
+            }
+            else if(ar[i]<ar[0]){
+                left[l]=ar[i];
+                l++;
+            }
+        }
+        int i=0;
+        for(i=0;i<l;i++){
+            ar[i]=left[i];
+        }
+        ar[i]=pivot;
+        i++;
+        for(int j=0; j<r; j++,i++){
+            ar[i]=right[j];
+        }
+        for(int x: ar){
+            System.out.print(x+" ");
+        }
+    }
+}
