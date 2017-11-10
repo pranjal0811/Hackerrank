@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int search(int ar[], int n, int v){
+        for(int i=0;i<n;i++){
+            if(v==ar[i]){
+               return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int v = in.nextInt();
+        int n = in.nextInt();
+        int ar [] = new int[n];
+        for(int i=0;i<n;i++){
+            ar[i]=in.nextInt();
+        }
+        System.out.println(search(ar,n,v));
+    }
+}
