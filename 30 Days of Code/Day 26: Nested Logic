@@ -1,0 +1,59 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    public static void calculateFine(int Da, int Ma, int Ya, int De, int Me, int Ye){
+        int fine=0;
+        if(Ma==Me&&Ya==Ye)
+            if(Da>De)
+                fine = 15*(Da - De);
+        if(Ya==Ye)
+            if(Ma>Me)
+                fine = 500*(Ma - Me);
+        if(Ya>Ye)
+            fine = 10000;
+        System.out.println(fine);
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int Da=sc.nextInt();
+        int Ma=sc.nextInt();
+        int Ya=sc.nextInt();
+        int De=sc.nextInt();
+        int Me=sc.nextInt();
+        int Ye=sc.nextInt();
+        try{
+            if(!(Ya>=1&&Ya<=3000 && Ye>=1 && Ye<=3000))
+                throw new Exception("Please input valid year");
+            if(!(Ma>=1&&Ma<=12 && Me>=1&&Me<=12))
+                throw new Exception("Please input valid month");
+                if(Ma==1||Ma==3||Ma==5||Ma==7||Ma==8||Ma==10||Ma==12||Me==1||Me==3||Me==5||Me==7||Me==8||Me==10||Me==12){
+                    if(!(Da>=1&&Da<=31&&De>=1&&De<=31))
+                        throw new Exception("Please input valid dates");
+                }
+                else if(Ma==2||Me==2){
+                    if(Ya%4==0)
+                    if(!(Da>=1&&Da<=29))
+                        throw new Exception("Please input valid dates");
+                    if(Ye%4==0)
+                        if(!(De>=1&&De<=29))
+                            throw new Exception("Please input valid dates");
+                    if(!(De>=1&&De<=28&&Da>=1&&Da<=28))
+                        throw new Exception("Please input valid dates");
+                }
+                else
+                    if(!(Da>=1&&Da<=30&&De>=1&&De<=30))
+                        throw new Exception("Please input valid dates");
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        calculateFine(Da,Ma,Ya,De,Me,Ye);
+    }
+}
