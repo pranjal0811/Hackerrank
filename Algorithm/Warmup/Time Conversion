@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String timeConversion(String s) {
+        if(s.indexOf('A')>0){
+            String [] str = s.split(":");
+            int tmp = Integer.parseInt(str[0]);
+            if(tmp!=12){
+            s= s.replace("AM","");
+            return s;
+            }
+            else{
+                char [] arr = s.toCharArray();
+                arr[0]='0';
+                arr[1]='0';
+                s= String.valueOf(arr);
+                return s.replace("AM","");   
+            }
+        }
+        else{
+            String [] str = s.split(":");
+            int tmp = Integer.parseInt(str[0]);
+            if(tmp!=12){
+                tmp = tmp+12;
+                str [1] = String.valueOf(tmp);
+                s=s.replace(str[0],str[1]);
+                return s.replace("PM","");
+            }
+            else{
+                return s.replace("PM","");
+            }            
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String result = timeConversion(s);
+        System.out.println(result);
+    }
+}
